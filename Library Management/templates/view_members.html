@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management - View Members</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <div class="navbar">
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        <a href="{{ url_for('add_member') }}">Add Member</a>
+        <a href="{{ url_for('view_books') }}">View Books</a>
+        <a href="{{ url_for('view_members') }}">View Members</a>
+        <a href="{{ url_for('issue_book') }}">Issue Book</a>
+        <a href="{{ url_for('return_book') }}">Return Book</a>
+        <a href="{{ url_for('view_transactions') }}">View Transactions</a>
+    </div>
+
+    <div class="content">
+        <h2>View Members</h2>
+        {% if members %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No members available in the library.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

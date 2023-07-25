@@ -1,0 +1,111 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+}
+
+.flash-message {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.success {
+    background-color: #28a745;
+}
+
+.danger {
+    background-color: #dc3545;
+}
+
+.info {
+    background-color: #17a2b8;
+}
+
+.login-container {
+    max-width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input, select, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

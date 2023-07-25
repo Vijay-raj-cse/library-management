@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management - Return Book</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <div class="navbar">
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        <a href="{{ url_for('add_member') }}">Add Member</a>
+        <a href="{{ url_for('view_books') }}">View Books</a>
+        <a href="{{ url_for('view_members') }}">View Members</a>
+        <a href="{{ url_for('issue_book') }}">Issue Book</a>
+        <a href="{{ url_for('return_book') }}">Return Book</a>
+        <a href="{{ url_for('view_transactions') }}">View Transactions</a>
+    </div>
+
+    <div class="content">
+        <h2>Return Book</h2>
+        <form action="{{ url_for('return_book') }}" method="post">
+            <label for="transaction_id">Transaction ID:</label>
+            <input type="number" id="transaction_id" name="transaction_id" required><br>
+
+            <input type="submit" value="Return Book">
+        </form>
+
+        {% if active_transactions %}
+        <h3>Active Transactions:</h3>
+        <ul>
+            {% for transaction in active_transactions %}
+            <li>Transaction ID: {{ transaction.id }} | Member ID: {{ transaction.member_id }} | Book ID: {{ transaction.book_id }} | Issue Date: {{ transaction.issue_date }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No active transactions at the moment.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

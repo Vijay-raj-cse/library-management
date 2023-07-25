@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management - View Transactions</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <div class="navbar">
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('add_book') }}">Add Book</a>
+        <a href="{{ url_for('add_member') }}">Add Member</a>
+        <a href="{{ url_for('view_books') }}">View Books</a>
+        <a href="{{ url_for('view_members') }}">View Members</a>
+        <a href="{{ url_for('issue_book') }}">Issue Book</a>
+        <a href="{{ url_for('return_book') }}">Return Book</a>
+        <a href="{{ url_for('view_transactions') }}">View Transactions</a>
+    </div>
+
+    <div class="content">
+        <h2>View Transactions</h2>
+        {% if transactions %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Member Name</th>
+                <th>Book Title</th>
+                <th>Issue Date</th>
+                <th>Return Date</th>
+            </tr>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.member.name }}</td>
+                <td>{{ transaction.book.title }}</td>
+                <td>{{ transaction.issue_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                {% if transaction.return_date %}
+                <td>{{ transaction.return_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                {% else %}
+                <td>Not returned yet</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No transactions available in the library.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
